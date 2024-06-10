@@ -1,0 +1,61 @@
+﻿@model WebApplication2.Models.Belgeler
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Belge Düzenle</h1>
+
+<h4>Belgeler</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                @Html.Label("OgrenciId", "Öğrenci Seçiniz", htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("OgrenciId", ViewBag.OgrenciId as SelectList, "Öğrenci Seçiniz", new { @class = "form-control" })
+                @Html.ValidationMessage("OgrenciId", "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    @Html.CheckBox("tskbelge", Model?.tskbelge ?? false, new { @class = "form-check-input" })
+                    @Html.DisplayName("tskbelge")
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    @Html.CheckBox("takdirbelge", Model?.takdirbelge ?? false, new { @class = "form-check-input" })
+                    @Html.DisplayName("takdirbelge")
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    @Html.CheckBox("onurbelge", Model?.onurbelge ?? false, new { @class = "form-check-input" })
+                    @Html.DisplayName("onurbelge")
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    @Html.CheckBox("basaribelge", Model?.basaribelge ?? false, new { @class = "form-check-input" })
+                    @Html.DisplayName("basaribelge")
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Kaydet" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Listeye Geri Dön</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

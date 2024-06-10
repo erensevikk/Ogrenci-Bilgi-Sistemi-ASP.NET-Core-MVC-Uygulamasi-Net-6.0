@@ -1,0 +1,49 @@
+﻿@model WebApplication2.Models.Ogrenciler
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Öğrenci Detayları</h1>
+
+<div>
+    <h4>Ogrenciler</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Adi)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Adi)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Soyadi)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Soyadi)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.VeliTelNo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VeliTelNo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Fotograf)
+        </dt>
+        <dd class="col-sm-10">
+            <img src="@Url.Content(Model.Fotograf)" alt="Öğrenci Fotoğrafı" width="80" height="80" style="display: block; margin: auto;" />
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Sınıf)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Sınıf.sınıf)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Düzenle</a> |
+    <a asp-action="Index">Listeye Geri Dön</a>
+</div>

@@ -1,0 +1,51 @@
+﻿@model WebApplication2.Models.Belgeler
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Belge Sil</h1>
+
+<div>
+    <h4>Belgeler</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Ogrenci)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Ogrenci.Adi)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.tskbelge)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.tskbelge)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.takdirbelge)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.takdirbelge)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.onurbelge)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.onurbelge)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.basaribelge)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.basaribelge)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Sil" class="btn btn-danger" /> |
+        <a asp-action="Index">Listeye Geri Dön</a>
+    </form>
+</div>

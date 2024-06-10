@@ -1,0 +1,59 @@
+﻿@model IEnumerable<WebApplication2.Models.Dersler>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Dersler</h1>
+
+<p>
+    @*<a class="btn btn-primary" asp-action="Create">Create New</a>*@
+    @Html.ActionLink("Ders Ekle","Create","Derslers")
+</p>
+<table class="table table-bordered table-striped" id="datatablesSimple">
+    <thead class="bg-info bg-opacity-80 text-white">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Ders)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Saat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ogretmen)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ders.DersAdi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Saat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ogretmen.Adi)
+            </td>
+            <td>
+                    @Html.ActionLink("Düzenle", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Ders Detayı", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Sil", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<script src="~/js/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+<script type="text/javascript">
+    var js = jQuery.noConflict(true);
+    js(document).ready(function () {
+        js('#datatablesSimple').DataTable({
+
+        });
+    });</script>

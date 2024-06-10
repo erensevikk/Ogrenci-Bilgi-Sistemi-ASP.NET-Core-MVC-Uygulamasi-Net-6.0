@@ -1,0 +1,50 @@
+﻿@model WebApplication2.Models.Dersler
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Düzenle</h1>
+
+<h4>Dersler</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+
+            <div class="form-group">
+                @Html.Label("DersId", "Ders", htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("DersId", ViewBag.DersId as SelectList, "Ders Seçiniz", new { @class = "form-control" })
+                @Html.ValidationMessage("DersId", "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Saat", "Saat", htmlAttributes: new { @class = "control-label" })
+                @Html.TextBox("Saat", Model?.Saat, new { @class = "form-control", type = "time" })
+                @Html.ValidationMessage("Saat", "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.Label("OgretmenId", "Öğretmen", htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("OgretmenId", ViewBag.OgretmenId as SelectList, "Öğretmen Seçiniz", new { @class = "form-control" })
+                @Html.ValidationMessage("OgretmenId", "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Kaydet" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Listeye Geri Dön</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

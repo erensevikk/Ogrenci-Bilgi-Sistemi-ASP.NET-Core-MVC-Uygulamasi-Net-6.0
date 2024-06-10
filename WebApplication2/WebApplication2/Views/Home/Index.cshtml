@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link href="~/css/styles.css" rel="stylesheet" />
+    <style>
+        .centered-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh; /* Viewport yüksekliğinin %100'ü */
+        }
+    </style>
+</head>
+<body>
+    <div class="centered-container">
+        <div class="text-center">
+            <h1 class="display-4">Öğrenci Bilgi Sistemine Hoş Geldiniz</h1>
+        </div>
+    </div>
+</body>
+</html>

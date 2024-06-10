@@ -1,0 +1,56 @@
+﻿@model WebApplication2.Models.Notlar
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Yeni Not Ekle</h1>
+
+<h4>Notlar</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                @Html.Label("OgrenciId", "Öğrenci", htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("OgrenciId", ViewBag.OgrenciId as SelectList, "Öğrenci Seçiniz", new { @class = "form-control" })
+                @Html.ValidationMessage("OgrenciId", "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.Label("DersId", "Ders Adı", htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("DersId", ViewBag.DersId as SelectList, "Ders Seçiniz", new { @class = "form-control" })
+                @Html.ValidationMessage("DersId", "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.Label("NotDegeri", "Not Değeri", htmlAttributes: new { @class = "control-label" })
+                @Html.TextBox("NotDegeri", Model?.NotDegeri, new { @class = "form-control" })
+                @Html.ValidationMessage("NotDegeri", "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.Label("sonuc", "Sonuç", htmlAttributes: new { @class = "control-label" })
+                @Html.TextBox("sonuc", Model?.sonuc, new { @class = "form-control", @readonly = "readonly" })
+                @Html.ValidationMessage("sonuc", "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Ekle" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Listeye Geri Dön</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,49 @@
+﻿@model WebApplication2.Models.Belgeler
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Belge Detayları</h1>
+
+<div>
+    <h4>Belgeler</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Ogrenci)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Ogrenci.Adi)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.tskbelge)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.tskbelge)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.takdirbelge)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.takdirbelge)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.onurbelge)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.onurbelge)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.basaribelge)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.basaribelge)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Düzenle</a> |
+    <a asp-action="Index">Listeye Geri Dön</a>
+</div>

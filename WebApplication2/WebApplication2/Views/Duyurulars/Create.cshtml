@@ -1,0 +1,56 @@
+﻿@model WebApplication2.Models.Duyurular
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Yeni Duyuru Ekle</h1>
+
+<h4>Duyurular</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                @Html.Label("OgretmenId", "Öğretmen", htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("OgretmenId", ViewBag.OgretmenId as SelectList, "Seçim Yapınız", new { @class = "form-control" })
+                @Html.ValidationMessage("OgretmenId", "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Duyuru", "Duyuru", htmlAttributes: new { @class = "control-label" })
+                @Html.TextArea("Duyuru", Model?.Duyuru, new { @class = "form-control", rows = 5, cols = 50, @style = "color:red;font-style:bold;" })
+                @Html.ValidationMessage("Duyuru", "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Tarih", "Tarih", htmlAttributes: new { @class = "control-label" })
+                @Html.TextBox("Tarih", Model?.Tarih != null ? Model.Tarih.ToString("yyyy-MM-dd") : "", new { @class = "form-control", type = "date" })
+                @Html.ValidationMessage("Tarih", "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.Label("YerId", "Yer", htmlAttributes: new { @class = "control-label" })
+                @Html.ListBox("YerId", ViewBag.YerId as SelectList, new { @class = "form-control" })
+                @Html.ValidationMessage("YerId", "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Ekle" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Listeye Geri Dön</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

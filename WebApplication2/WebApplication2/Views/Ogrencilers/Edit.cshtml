@@ -1,0 +1,67 @@
+﻿@model WebApplication2.Models.Ogrenciler
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Öğrenci Bilgilerini Düzenle</h1>
+
+<h4>Ogrenciler</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @Html.HiddenFor(model => model.Id)
+            <div class="form-group">
+                @Html.Label("Adi", "Adı", htmlAttributes: new { @class = "control-label" })
+                @Html.TextBox("Adi", Model.Adi, new { @class = "form-control" })
+                @Html.ValidationMessage("Adi", "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.Label("Soyadi", "Soyadı", htmlAttributes: new { @class = "control-label" })
+                @Html.TextBox("Soyadi", Model.Soyadi, new { @class = "form-control" })
+                @Html.ValidationMessage("Soyadi", "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.Label("VeliTelNo", "Veli Tel No", htmlAttributes: new { @class = "control-label" })
+                @Html.TextBox("VeliTelNo", Model.VeliTelNo, new { @class = "form-control" })
+                @Html.ValidationMessage("VeliTelNo", "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.Label("Fotograf", "Fotoğraf", htmlAttributes: new { @class = "control-label" })
+                @Html.TextBox("Fotograf", Model.Fotograf, new { @class = "form-control" })
+                @Html.ValidationMessage("Fotograf", "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.Label("ImageFile", "Fotoğraf Yükle", htmlAttributes: new { @class = "control-label" })
+                @Html.Editor("ImageFile", new { htmlAttributes = new { @class = "form-control", type = "file", accept = "image/*" } })
+                @Html.ValidationMessage("ImageFile", "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.Label("SınıfId", "Sınıf", htmlAttributes: new { @class = "control-label" })
+                <div>
+                    @Html.RadioButton("SınıfId", 1, Model.SınıfId == 1) 9.SINIF<br />
+                    @Html.RadioButton("SınıfId", 2, Model.SınıfId == 2) 10.SINIF<br />
+                    @Html.RadioButton("SınıfId", 3, Model.SınıfId == 3) 11.SINIF<br />
+                    @Html.RadioButton("SınıfId", 4, Model.SınıfId == 4) 12.SINIF
+                </div>
+                @Html.ValidationMessage("SınıfId", "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Kaydet" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Listeye Geri Dön</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
