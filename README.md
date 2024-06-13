@@ -25,3 +25,4 @@
 <img src="Screenshots/9.png" width="700px">
 <p style="font-size: 15px;"><strong>Dersler ve Öğretmenler Örnek:</strong></p>
 <img src="Screenshots/10.png" width="700px">
+**Beni desteklemek için projeyi yıldızlarsanız çok sevinirim. Teşekkürler.**
