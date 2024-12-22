@@ -26,3 +26,4 @@
 <p style="font-size: 15px;"><strong>Dersler ve Öğretmenler Örnek:</strong></p>
 <img src="Screenshots/10.png" width="700px">
 <p style="font-size: 15px; font-weight: bold;">Beni desteklemek için projeyi yıldızlarsanız çok sevinirim. Teşekkürler.</p>
+<p style="font-size: 15px; font-weight: bold;">I would greatly appreciate it if you could star the project to support me. Thank you!.</p>
